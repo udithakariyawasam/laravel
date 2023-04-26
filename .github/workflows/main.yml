@@ -60,3 +60,26 @@ jobs:
           SLACK_TITLE: Post Title
           SLACK_USERNAME: rtCamp
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          
+          
+      - name: Send Slack message
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.https://hooks.slack.com/services/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 }}
+        run: |
+          MESSAGE="{
+          \"text\": \"Your message text\",
+          \"attachments\": [{
+            \"fallback\": \"Fallback text\",
+            \"color\": \"#36a64f\",
+            \"pretext\": \"Pretext text\",
+            \"title\": \"Title text\",
+            \"fields\": [{
+              \"title\": \"Field title\",
+              \"value\": \"Field value\",
+              \"short\": false
+            }],
+            \"footer\": \"Footer text\",
+            \"ts\": \"$(date +%s)\"
+          }]
+          }"
+          curl -X POST -H 'Content-type: application/json' --data "$MESSAGE" $SLACK_WEBHOOK_URL
