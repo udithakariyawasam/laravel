@@ -64,7 +64,7 @@ jobs:
           
       - name: Send Slack message
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 # ${{ secrets.SLACK_WEBHOOK_URL}}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL}}
         run: |
           MESSAGE="{
           \"text\": \"Your message text\",
