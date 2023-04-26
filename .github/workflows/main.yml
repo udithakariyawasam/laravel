@@ -64,7 +64,7 @@ jobs:
           
       - name: Send Slack message
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.https://hooks.slack.com/services/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 }}
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 # ${{ secrets.SLACK_WEBHOOK_URL}}
         run: |
           MESSAGE="{
           \"text\": \"Your message text\",
@@ -82,4 +82,4 @@ jobs:
             \"ts\": \"$(date +%s)\"
           }]
           }"
-          curl -X POST -H 'Content-type: application/json' --data "$MESSAGE" $SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data "$MESSAGE" $https://hooks.slack.com/services/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 
